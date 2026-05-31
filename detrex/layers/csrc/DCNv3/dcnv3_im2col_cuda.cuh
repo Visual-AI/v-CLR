@@ -16,7 +16,14 @@
 #include <ATen/ATen.h>
 #include <ATen/OpMathType.h>
 #include <ATen/cuda/CUDAContext.h>
+// `THC/THCAtomics.cuh` was removed in PyTorch 1.11 (the THC library is gone in
+// the PyTorch 2.x / CUDA 12 builds). Fall back to the ATen atomics header, which
+// provides the same `atomicAdd` overloads. Keeps CUDA 11 (older PyTorch) working.
+#if defined(__has_include) && __has_include(<THC/THCAtomics.cuh>)
 #include <THC/THCAtomics.cuh>
+#else
+#include <ATen/cuda/Atomic.cuh>
+#endif
 
 #define CUDA_KERNEL_LOOP(i, n)                                                 \
     for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < (n);               \
