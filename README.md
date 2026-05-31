@@ -55,7 +55,7 @@ export CUDA_HOME=<your_cuda_path>
 - You may download images and annoations besides COCO from [OWIS Datasets](https://huggingface.co/datasets/allencbzhang/OWIScollection), and then organize the data as:
 ```
 datasets/
-├── coco2017/
+├── coco/
 │   │
 │   ├── annotations/                  
 │   │   ├── instances_train2017.json  
@@ -64,7 +64,13 @@ datasets/
 │   ├── train2017/                    
 │   │   └── ...
 │   │
-│   └── val2017/                   
+│   ├── val2017/                   
+│   │   └── ...
+│   │
+│   ├── style_coco_train2017/
+│   │   └── ...
+│   │
+│   └── train2017_depth_cmap/
 │       └── ...
 │
 ├── object365_val/
@@ -78,12 +84,6 @@ datasets/
 ├── uvo_nonvoc_val_rle.json
 ├── vCLR_coco_train2017_top5.json
 ├── vCLR_voc_train2017_top10.json
-│
-├── style_coco_train2017/
-│   └── ...
-│
-├── train2017_depth_cmap/
-│   └── ...
 │
 └── uvo_videos_dense_frames/
     └── ... 
