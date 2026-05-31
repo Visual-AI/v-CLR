@@ -93,7 +93,7 @@ datasets/
 ## Train
 - Train on VOC classes:
 ```
-python projects/vCLR_deformable_mask/train_net.py \
+python tools/train_net.py \
     --config-file projects/vCLR_deformable_mask/configs/dino-resnet/deformable_train_voc_eval_nonvoc.py \
     --num-gpus N \
     dataloader.train.total_batch_size=8 \
@@ -106,7 +106,7 @@ python projects/vCLR_deformable_mask/train_net.py \
 
 - Train on COCO classes:
 ```
-python projects/vCLR_deformable_mask/train_net.py \
+python tools/train_net.py \
     --config-file projects/vCLR_deformable_mask/configs/dino-resnet/deformable_train_coco_eval_lvis.py \
     --num-gpus N \
     dataloader.train.total_batch_size=8 \
@@ -120,7 +120,7 @@ python projects/vCLR_deformable_mask/train_net.py \
 ## Evaluate
 - Evaluate on Non-VOC or LVIS:
 ```
-python projects/vCLR_deformable_mask/train_net.py \
+python tools/train_net.py \
     --config-file <config_file> \
     --eval-only \
     --num-gpus=4 \
@@ -131,7 +131,7 @@ python projects/vCLR_deformable_mask/train_net.py \
 
 - Evaluate on UVO:
 ```
-python projects/vCLR_deformable_mask/train_net.py \
+python tools/train_net.py \
     --config-file <config_file> \
     --eval-only \
     --num-gpus=4 \
@@ -143,7 +143,7 @@ python projects/vCLR_deformable_mask/train_net.py \
 
 - Evaluate on Objects365:
 ```
-python projects/vCLR_deformable_mask/train_net.py \
+python tools/train_net.py \
     --config-file <config_file> \
     --eval-only \
     --num-gpus=4 \
