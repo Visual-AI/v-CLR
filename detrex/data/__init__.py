@@ -21,5 +21,9 @@ from .dataset_mappers import (
     MaskFormerInstanceDatasetMapper,
     MaskFormerPanopticDatasetMapper,
 )
-from . import datasets
+# NOTE: upstream detrex ships a `detrex/data/datasets/` package here, but it was not
+# vendored into this repo and nothing in v-CLR imports it (datasets are registered via
+# detectron2's `register_coco_instances` in the project configs). The import is dropped
+# to avoid an ImportError ("cannot import name 'datasets'") at `import detrex.data`.
+# from . import datasets
 from .transforms import ColorAugSSDTransform
